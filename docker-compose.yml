@@ -5,7 +5,7 @@ services:
     ports:
       - '8086:8086'
     volumes:
-      - ./influxdb:/var/lib/influxdb
+      - influxdb-storage:/var/lib/influxdb
     environment:
       - INFLUXDB_DB=db0
       - INFLUXDB_ADMIN_USER=${INFLUXDB_USERNAME}
@@ -40,6 +40,7 @@ services:
     networks:
       - influxdb
 volumes:
+  influxdb-storage:
   chronograf-storage:
   grafana-storage:
 networks:
